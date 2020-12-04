@@ -1,0 +1,156 @@
+﻿@model ExamExpert.Common.ViewModels.ExamPaperVM
+
+@{
+    ViewData["Title"] = "Sınav Kontrolü";
+}
+
+<div class="row col-lg-10 col-md-10" id="div_FormLogin">
+    <h1>@Model.Exam.WiredTypingTitle.ToUpper()</h1>
+    <p>@Model.Exam.WiredTypingContent</p>
+
+    <div class="row col-lg-10 col-md-10" id="btnGroup_RegisterLogin">
+        <div class="col-lg-5 col-md-5">
+            <div data-questionid="@Model.Exam.Questions[0].QuestionId" class="form-group question" style="margin-top: 30px">
+                <div class="row">
+                    1-) <p>@Model.Exam.Questions[0].QuestionText</p>
+                </div>
+                <div data-choiceValue="A" class="row" style="margin-top: 5px; border-style: solid">
+                    A-)<a href="#"> @Model.Exam.Questions[0].Choice_A</a>
+                </div>
+                <div data-choiceValue="B" class="row" style="margin-top: 5px; border-style: solid">
+                    B-)<a href="#"> @Model.Exam.Questions[0].Choice_B</a>
+                </div>
+                <div data-choiceValue="C" class="row" style="margin-top: 5px; border-style: solid">
+                    C-)<a href="#"> @Model.Exam.Questions[0].Choice_C</a>
+                </div>
+                <div data-choiceValue="D" class="row" style="margin-top: 5px; border-style: solid">
+                    D-)<a href="#"> @Model.Exam.Questions[0].Choice_D</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5" style="margin-left: 50px">
+            <div data-questionid="@Model.Exam.Questions[1].QuestionId" class="form-group question" style="margin-top: 30px">
+                <div class="row">
+                    2-) <p>@Model.Exam.Questions[1].QuestionText</p>
+                </div>
+                <div data-choiceValue="A" class="row" style="margin-top: 5px; border-style: solid">
+                    A-)<a href="#"> @Model.Exam.Questions[1].Choice_A</a>
+                </div>
+                <div data-choiceValue="B" class="row" style="margin-top: 5px; border-style: solid">
+                    B-)<a href="#"> @Model.Exam.Questions[1].Choice_B</a>
+                </div>
+                <div data-choiceValue="C" class="row" style="margin-top: 5px; border-style: solid">
+                    C-)<a href="#"> @Model.Exam.Questions[1].Choice_C</a>
+                </div>
+                <div data-choiceValue="D" class="row" style="margin-top: 5px; border-style: solid">
+                    D-)<a href="#"> @Model.Exam.Questions[1].Choice_D</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-lg-10 col-md-10" id="btnGroup_RegisterLogin">
+        <div class="col-lg-5 col-md-5">
+            <div data-questionid="@Model.Exam.Questions[2].QuestionId" class="form-group question" style="margin-top: 30px">
+                <div data-choiceValue="B" class="row">
+                    3-) <p>@Model.Exam.Questions[2].QuestionText</p>
+                </div>
+                <div data-choiceValue="A" class="row" style="margin-top: 5px; border-style: solid">
+                    A-)<a href="#"> @Model.Exam.Questions[2].Choice_A</a>
+                </div>
+                <div data-choiceValue="B" class="row" style="margin-top: 5px; border-style: solid">
+                    B-)<a href="#"> @Model.Exam.Questions[2].Choice_B</a>
+                </div>
+                <div data-choiceValue="C" class="row" style="margin-top: 5px; border-style: solid">
+                    C-)<a href="#"> @Model.Exam.Questions[2].Choice_C</a>
+                </div>
+                <div data-choiceValue="D" class="row" style="margin-top: 5px; border-style: solid">
+                    D-)<a href="#"> @Model.Exam.Questions[2].Choice_D</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5" style="margin-left: 50px">
+            <div data-questionid="@Model.Exam.Questions[3].QuestionId" class="form-group question" style="margin-top: 30px">
+                <div class="row">
+                    4-) <p>@Model.Exam.Questions[3].QuestionText</p>
+                </div>
+                <div data-choiceValue="A" class="row" style="margin-top: 5px; border-style: solid">
+                    A-)<a href="#"> @Model.Exam.Questions[3].Choice_A</a>
+                </div>
+                <div data-choiceValue="B" class="row" style="margin-top: 5px; border-style: solid">
+                    B-)<a href="#"> @Model.Exam.Questions[3].Choice_B</a>
+                </div>
+                <div data-choiceValue="C" class="row" style="margin-top: 5px; border-style: solid">
+                    C-)<a href="#"> @Model.Exam.Questions[3].Choice_C</a>
+                </div>
+                <div data-choiceValue="D" class="row" style="margin-top: 5px; border-style: solid">
+                    D-)<a href="#"> @Model.Exam.Questions[3].Choice_D</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row col-lg-12 col-md-12">
+        <div class="col-lg-5 col-md-5"></div>
+        <button id="checkExamButton" type="button" class="btn btn-primary col-lg-4 col-md-4">SINAVI TAMAMLA</button>
+        <div class="col-lg-3 col-md-3"></div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12"><hr /></div>
+
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#checkExamButton").on('click', function () {
+            var questionsArray = [];
+
+            var questions = $(".question");
+            $.each(questions, function (i, item) {
+                $.each($(item).children(), function (i, option) {
+                    if ($(option).css("background-color") == "rgb(255, 255, 0)") {
+                        var question = {};
+                        question.QuestionId = $(option).parent().data("questionid");
+                        question.Answer = $(option).data("choicevalue");
+                        questionsArray.push(question);
+                    }
+                });
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/Exam/CheckExam",
+                contentType: "application/json; charset=utf-8",
+                dataType: "JSON",
+                data: JSON.stringify(questionsArray),
+                success: function (res) {
+                    var answers = $("div").filter(function () {
+                        return $(this).css("background-color") == "rgb(255, 255, 0)";
+                    });
+
+                    if (res.results != "error") {
+                        $.each(res.results, function (i, item) {
+                            if (item) {
+                                $(answers[i]).css("background", "green");
+                            } else {
+                                $(answers[i]).css("background", "red");
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        $("a").on('click', function () {
+            var childs = $(this).parent().parent().children();
+            $.each(childs, function (i, item) {
+                $(item).css("background", "white")
+            })
+
+            $(this).parent().css("background", "yellow");
+
+        });
+    </script>
+}

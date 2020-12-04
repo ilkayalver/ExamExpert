@@ -1,0 +1,39 @@
+﻿@model ExamExpert.Common.ViewModels.LoginVM
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+
+<div class="row col-lg-10 col-md-10" id="div_FormLogin">
+    <form class="col-lg-10 col-md-10" id="form_Login" asp-action="Login" asp-controller="Account" method="post">
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for="UserName" class="control-label col-lg-3 col-md-3">Kullanıcı Adınız</label>
+                <input asp-for="UserName" class="form-control col-lg-5 col-md-5">
+                <span asp-validation-for="UserName" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for="Password" class="control-label col-lg-3 col-md-3">Şifreniz</label>
+                <input asp-for="Password" type="password" class="form-control col-lg-5 col-md-5">
+                <span asp-validation-for="Password" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <button type="submit" class="btn btn-primary col-lg-3 col-md-3">Giriş Yap</button>
+            <div class="col-lg-3 col-md-3"> </div>
+            <a class="btn btn-primary col-lg-4 col-md-4" href="../../Home/Index">Ana Sayfaya Dön</a>
+        </div>
+
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

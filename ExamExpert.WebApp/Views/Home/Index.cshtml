@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+
+@if (User.Identity.IsAuthenticated == false)
+{
+    <div class="row col-lg-10 col-md-10" id="btnGroup_RegisterLogin">
+        <div class="col-lg-5 col-md-5">
+            <div class="spinner-grow text-success col-lg-1 col-md-1" role="status"></div>
+            <a href="../../Account/Register" class="btn btn-primary col-lg-3 col-md-3">Kayıt Ol</a>
+            <div class="spinner-grow text-success col-lg-2 col-md-1" role="status"></div>
+        </div>
+        <div class="col-lg-5 col-md-5">
+            <div class="spinner-grow text-primary col-lg-1 col-md-1" role="status"></div>
+            <a href="../../Account/Login" class="btn btn-success col-lg-3 col-md-3">GirişYap</a>
+            <div class="spinner-grow text-primary col-lg-2 col-md-1" role="status"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row col-lg-10 col-md-10" id="btnGroup_Exams">
+        <div class="col-lg-5 col-md-5">
+            <div class="spinner-grow text-success col-lg-1 col-md-1" role="status"></div>
+            <a href="../../Exam/ListExams" class="btn btn-primary col-lg-3 col-md-3">Sınav Listesi</a>
+            <div class="spinner-grow text-success col-lg-2 col-md-1" role="status"></div>
+        </div>
+        <div class="col-lg-5 col-md-5">
+            <div class="spinner-grow text-primary col-lg-1 col-md-1" role="status"></div>
+            <a href="../../Exam/GenerateExam" class="btn btn-success col-lg-3 col-md-3">Sınav Oluştur</a>
+            <div class="spinner-grow text-primary col-lg-2 col-md-1" role="status"></div>
+        </div>
+    </div>
+}
+
+
+
+<div class="row" id="div_welcomeText">
+    <div class="text-center col-lg-12 col-md-12">
+        <h3 class="display-4">Sınav Uzmanına Hoşgeldiniz...</h3>
+    </div>
+</div>
+
+

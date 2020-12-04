@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ExamExpert.Common.ViewModels.ExamListVM>
+
+@{
+    ViewData["Title"] = "Sınavlar";
+}
+
+<div class="row">
+    <table class="table" id="logsList">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Başlık
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    İşlem
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.ExamOrderNumber
+                    </td>
+                    <td>
+                        <a href="/Exam/CheckExam?examId=@item.ExamPaper.ExamId">@item.ExamPaper.WiredTypingTitle</a>
+                    </td>
+                    <td>
+                        @item.ExamPaper.CreateDate.Date
+                    </td>
+                    <td>
+                        <a href="#" class="deleteExam" data-examid="@item.ExamPaper.ExamId">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <hr />
+
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(".deleteExam").on('click', function () {
+            var examId = $(this).data("examid");
+            $.ajax({
+                type: "POST",
+                url: "/Exam/DeleteExam",
+                dataType: "JSON",
+                data: { examId: examId },
+                success: function (res) {
+                    alert(res.messageOfDeleteOperation);
+                    location.reload();
+                }
+            });
+        });
+    </script>
+}
+

@@ -1,0 +1,217 @@
+﻿@model List<ExamExpert.Common.ViewModels.WiredTypingsListVM>
+
+@{
+    ViewData["Title"] = "Sınav Oluştur";
+}
+
+<div class="row col-lg-10 col-md-10" id="div_FormGenerateExam">
+    <form class="col-lg-10 col-md-10" id="generateExamForm" asp-action="GenerateExam" asp-controller="Exam" method="post">
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="typingTitleButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Wiring yazısını seçiniz.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach (var typing in Model)
+                    {
+                        <a class="dropdown-item typing" href="#">@typing.TypingTitle</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea style="margin-top: 10px" class="form-control" id="typingContentTextarea" rows="7"></textarea>
+        </div>
+        <div class="form-group question" style="margin-top: 30px">
+            <div class="row">
+                Soru 1 - Başlık : <input name="questionText" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                A-)<input name="choice_A" style="margin-right: 10px" /> B-)<input name="choice_B" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                C-)<input name="choice_C" style="margin-right: 10px" /> D-)<input name="choice_D" />
+            </div>
+            <div class="dropdown" style="margin-top: 10px">
+                Doğru Cevap : <button name="correctChoice" name="correctChoice" class="btn btn-secondary dropdown-toggle" type="button" id="question1Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Doğru Cevabı Seçiniz.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item choice1" href="#">A</a>
+                    <a class="dropdown-item choice1" href="#">B</a>
+                    <a class="dropdown-item choice1" href="#">C</a>
+                    <a class="dropdown-item choice1" href="#">D</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group question" style="margin-top: 30px">
+            <div class="row">
+                Soru 2 - Başlık : <input name="questionText" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                A-)<input name="choice_A" style="margin-right: 10px" /> B-)<input name="choice_B" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                C-)<input name="choice_C" style="margin-right: 10px" /> D-)<input name="choice_D" />
+            </div>
+            <div class="dropdown" style="margin-top: 10px">
+                Doğru Cevap : <button name="correctChoice" class="btn btn-secondary dropdown-toggle" type="button" id="question2Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Doğru Cevabı Seçiniz.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item choice2" href="#">A</a>
+                    <a class="dropdown-item choice2" href="#">B</a>
+                    <a class="dropdown-item choice2" href="#">C</a>
+                    <a class="dropdown-item choice2" href="#">D</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group question" style="margin-top: 30px">
+            <div class="row">
+                Soru 3 - Başlık : <input name="questionText" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                A-)<input name="choice_A" style="margin-right: 10px" /> B-)<input name="choice_B" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                C-)<input name="choice_C" style="margin-right: 10px" /> D-)<input name="choice_D" />
+            </div>
+            <div class="dropdown" style="margin-top: 10px">
+                Doğru Cevap : <button name="correctChoice" class="btn btn-secondary dropdown-toggle" type="button" id="question3Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Doğru Cevabı Seçiniz.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item choice3" href="#">A</a>
+                    <a class="dropdown-item choice3" href="#">B</a>
+                    <a class="dropdown-item choice3" href="#">C</a>
+                    <a class="dropdown-item choice3" href="#">D</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group question" style="margin-top: 30px">
+            <div class="row">
+                Soru 4 - Başlık : <input name="questionText" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                A-)<input name="choice_A" style="margin-right: 10px" /> B-)<input name="choice_B" />
+            </div>
+            <div class="row" style="margin-top: 5px">
+                C-)<input name="choice_C" style="margin-right: 10px" /> D-)<input name="choice_D" />
+            </div>
+            <div class="dropdown" style="margin-top: 10px">
+                Doğru Cevap : <button name="correctChoice" class="btn btn-secondary dropdown-toggle" type="button" id="question4Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Doğru Cevabı Seçiniz.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item choice4" href="#">A</a>
+                    <a class="dropdown-item choice4" href="#">B</a>
+                    <a class="dropdown-item choice4" href="#">C</a>
+                    <a class="dropdown-item choice4" href="#">D</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px">
+            <div class="row col-lg-10 col-md-10">
+                <button id="generateExamButton" type="button" class="btn btn-primary col-lg-5 col-md-5">Sınavı Oluştur</button>
+                <div class="col-lg-3 col-md-3"></div>
+                <a href="../../Home/Index" class="btn btn-primary col-lg-2 col-md-2">Vazgeç</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row"></div>
+@*<div class="row col-lg-10 col-md-10">
+        <div class="col-lg-7 col-md-7"></div>
+        <a href="../../Exam/ListExams" class="btn btn-primary col-lg-3 col-md-3">Sınav Listesini Görüntüle</a>
+    </div>*@
+
+@foreach (var typing in Model)
+{
+    <div style="display: none" id="@typing.TypingTitle.Replace(" ", "").Replace(":", "").Replace("#","").Replace(".","").Replace("´","").Replace("&","").Replace("-","").Replace("_","").Replace("|","").Replace("<","").Replace(">","")">@typing.TypingContent</div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(".typing").on('click', function () {
+            $("#typingTitleButton").html($(this).html())
+
+            var typingContent = $("#" + $(this).html().replaceAll(" ", "").replaceAll(":", "")).html();
+            $("#typingContentTextarea").html(typingContent);
+        });
+
+        $(".choice1").on('click', function () {
+            $("#question1Dropdown").html($(this).html())
+        });
+        $(".choice2").on('click', function () {
+            $("#question2Dropdown").html($(this).html())
+        });
+        $(".choice3").on('click', function () {
+            $("#question3Dropdown").html($(this).html())
+        });
+        $(".choice4").on('click', function () {
+            $("#question4Dropdown").html($(this).html())
+        });
+
+        $("#generateExamButton").on('click', function () {
+
+            //var examData = new Array();
+            //var exam = {};
+
+            var exam = {};
+            var data = new Array();
+            var questions = $(".question");
+            var state = 0;
+
+            //exam.WiredTypingTitle = $("#typingTitleButton").html();
+            //exam.WiredTypingContent = $("#typingContentTextarea").html();
+
+            exam["WiredTypingTitle"] = $("#typingTitleButton").html();
+            exam["WiredTypingContent"] = $("#typingContentTextarea").html();
+
+
+            $.each(questions, function (i, item) {
+                var question = {};
+                question.QuestionText = $('input[name=questionText]')[i].value;
+                question.Choice_A = $('input[name=choice_A]')[i].value;
+                question.Choice_B = $('input[name=choice_B]')[i].value;
+                question.Choice_C = $('input[name=choice_C]')[i].value;
+                question.Choice_D = $('input[name=choice_D]')[i].value;
+                question.CorrectChoice = $($('button[name=correctChoice]')[i]).html().trim();
+
+                var q = question;
+                if (q.Choice_A === "" || q.Choice_B === "" || q.Choice_C === "" || q.Choice_D === "" || q.CorrectChoice === "Doğru Cevabı Seçiniz." || exam["WiredTypingTitle"] === "Wiring yazısını seçiniz." || exam["WiredTypingContent"] === "") {
+                    alert("Lütfen tüm alanları doldurunuz.");
+                    state = 1;
+                    return false;
+                }
+
+                data.push(question);
+            });
+
+            if (state != 1) {
+                //exam["Questions"] = data;
+                //exam.push(exam["Questions"]);
+
+                //exam.Questions = data;
+                //examData.push(exam);
+
+                exam["Questions"] = data;
+                $.ajax({
+                    type: "POST",
+                    url: "/Exam/GenerateExam",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ Exam: exam }),
+                    success: function (res) {
+                        location.href = "/Exam/ListExams";
+                    }
+                });
+            }
+        });
+
+    </script>
+}

@@ -1,0 +1,49 @@
+﻿
+.navbar-collapse {
+    background-color: darkcyan;
+}
+
+.navbar-header {
+    float: left;
+    padding: 2px;
+    text-align: center;
+    width: 100%;
+    height: 15px;
+}
+
+.navbar-brand {
+    float: none;
+    margin-top: -10px;
+    color: white;
+}
+
+#navbar-right {
+    position: fixed;
+    right: 0;
+    height: 100%;
+}
+
+#navbar-left {
+    position: fixed;
+    left: 0;
+    height: 100%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: burlywood;    
+}
+
+/* For "Home/Index" */
+#btnGroup_RegisterLogin {
+    margin-top: 40px;    
+    margin-left: 170px;    
+}
+
+#div_welcomeText {
+    margin-top: 140px;
+}
+

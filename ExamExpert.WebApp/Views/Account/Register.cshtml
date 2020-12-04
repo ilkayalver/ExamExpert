@@ -1,0 +1,52 @@
+﻿@model ExamExpert.Common.ViewModels.RegisterVM
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="row col-lg-10 col-md-10" id="div_FormRegister">
+    <form class="col-lg-10 col-md-10" id="form_Register" asp-action="Register" asp-controller="Account" method="post">
+
+        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for="UserName" class="control-label col-lg-3 col-md-3">Kullanıcı Adınız</label>
+                <input asp-for="UserName" class="form-control col-lg-5 col-md-5">
+                <span asp-validation-for="UserName" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for=" Email" class="control-label col-lg-3 col-md-3">E-mail Adresiniz</label>
+                <input asp-for="Email" type="email" class="form-control col-lg-5 col-md-5" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <span asp-validation-for="Email" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for="Password" class="control-label col-lg-3 col-md-3">Şifreniz</label>
+                <input asp-for="Password" type="password" class="form-control col-lg-5 col-md-5">
+                <span asp-validation-for="Password" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <div class="form-group col-lg-10 col-md-10">
+                <label asp-for="ConfirmPassword" class="control-label col-lg-3 col-md-3">Şifreniz Tekrar</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control col-lg-5 col-md-5">
+                <span asp-validation-for="ConfirmPassword" class="text-danger col-lg-2 col-md-2"></span>
+            </div>
+        </div>
+
+        <div class="row col-lg-10 col-md-10">
+            <button type="submit" class="btn btn-primary col-lg-3 col-md-3">Kayıt Ol</button>
+            <div class="col-lg-3 col-md-3"> </div>
+            <a class="btn btn-primary col-lg-4 col-md-4" href="../../Home/Index">Ana Sayfaya Dön</a>
+        </div>
+    </form>
+</div>
+
